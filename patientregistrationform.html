@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: aliceblue;
+
+        }
+        .main{
+            width: 700px;
+            box-shadow: 0 0 5px black;
+            padding: 15px 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 10px;
+            transform: translate(-50%,-50%);
+        }
+        .main h1{
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .row{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 35px;
+        }
+        label, input{
+            font-size: 21px;
+            padding: 5px;
+        }
+        input{
+            border: 1px solid black;
+            border-radius: 5px;
+
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 21px;
+            border-radius: 4px;
+        }
+        button:hover {
+            background: #218838;
+        }
+        p{
+            font-size: 19px;
+            margin: 9px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Register as a Patient</h1>
+        <form action="http://localhost:8080/PICT_AP/PatientRegistration" method="post">
+            <div class="row">
+                <div><label for="name">Enter your name: </label></div>
+                <div><input type="text" name="name" id="name"></div>
+            </div>
+            <div class="row">
+                <div><label for="contact">Enter your contact number: </label></div>
+                <div><input type="number" name="contact" id="contact"></div>
+            </div>
+            <div class="row">
+                <p style="color: black; font-size: 21px;">Select your gender: </p>
+                <input type="radio" name="gender" value="male" id="male">   <label for="male">Male</label> 
+                <input type="radio" name="gender" value="female" id="female">   <label for="female">Female</label>
+                <input type="radio" name="gender" value="other" id="other">   <label for="other">other</label>
+            </div>
+            <div class="row">
+                <div><label for="age">Enter your age: </label></div>
+                <div><input type="number" name="age" id="age"></div>
+            </div> 
+            <div class="row">
+                <div><label for="email">Enter your email: </label></div>
+                <div><input type="email" name="email" id="email"></div>
+            </div> 
+            <div class="row">
+                <div><label for="uname">Enter your username: </label></div>
+                <div><input type="text" name="uname" id="uname"></div>
+            </div>  
+            <div class="row">
+                <div><label for="pass">Enter your password: </label></div>
+                <div><input type="password" name="pass" id="pass"></div>
+            </div>  
+            <button>Register</button>
+        </form>
+    </div>
+</body>
+</html>
