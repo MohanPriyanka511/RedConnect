@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PICT PRG: AP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Technological solution as per queuing models in OPDs/availability of beds/admission of patients would be 
+    one area Study of dispensation of various types of medicines/consumables and Inventory management modules at 
+    hospital level are key areas requiring support. NIC has already developed some modules but their implementation 
+    in Delhi is yet to be started. A hospital based solution is ideal which can be integrated with city wide module 
+    may be required. -->
+    <nav>
+        <div>
+            <p><a href="index.html"
+                    style="text-decoration: none; font-size: 25px; color: rgb(30, 0, 0); border: none;">RedConnect_AP</a>
+            </p>
+        </div>
+        <div>
+            <ul>
+                <li><a href="#opd">OPD Queue</a></li>
+                <li><a href="#bed">Bed Available</a></li>
+                <li><a href="./blooddonation.html">Blood Donation</a></li>
+                <li><a href="opdregistrationform.html" target="_blank">Register for OPD</a></li>
+                <li><a href="./patientregistrationform.html">Register as Patient</a></li>
+                <li id="login-item"><a href="login.html">Login</a></li>
+                <li id="logout-item" style="display: none;"><a href="#" onclick="logout()">Logout</a></li>
+
+
+            </ul>
+        </div>
+    </nav>
+    <script>
+        function logout() {
+            localStorage.clear();
+            window.location.reload(); // Or redirect to login.html
+        }
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const loginItem = document.getElementById("login-item");
+            const logoutItem = document.getElementById("logout-item");
+            const navList = document.querySelector("nav ul");
+
+            const isLoggedIn = localStorage.getItem("isLoggedIn");
+            const userName = localStorage.getItem("name");
+
+            if (isLoggedIn === "true") {
+                // Hide login button and show logout
+                if (loginItem) loginItem.style.display = "none";
+                if (logoutItem) logoutItem.style.display = "list-item";
+
+                // Add user icon or name
+                const userLi = document.createElement("li");
+                userLi.innerHTML = `<a href="#"><img src="Images/user-icon.png" alt="User" style="width:20px; vertical-align:middle;"> ${userName || 'User'}</a>`;
+                navList.appendChild(userLi);
+            }
+        });
+    </script>
+
+    <hr>
+    <!-- Hospital Details -->
+    <section>
+        <h1>Sanjivani College of Ayurveda and Research Center, Kopargaon</h1>
+        <p>Khirdi Ganesh, Tal-Kopargaon, Dist- Ahemdanagar 423601 Recognized by National Commission for Indian System of
+            Medicine, Ministry of AYUSH, Govt of India, New Delhi Affiliated to Maharashtra University of Health
+            Science, Nashik</p>
+    </section>
+    <!-- section for OPD Queue Display -->
+    <section id="opd">
+        <!-- OPD Queue Display -->
+        <p>Live OPD Queue</p>
+        <p>Patient in Queue: <span id="qc"></span></p>
+        <table border="2" class="Showtable">
+            <th>Token Number</th>
+            <th>Patient Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Doctor Assigned</th>
+            <th>Department</th>
+            <th>Status</th>
+        </table>
+    </section>
+    <!-- Bed Available Display -->
+    <section id="bed">
+        <p>Beds Available In Hospital</p>
+        <div class="card-conatiner">
+            <div class="card"
+                style="background-image: url('./Images/gb.jpeg'); background-size: 100% 100%; opacity: 0.8;">
+                <!-- <img src="gb.jpeg" alt="gb" style="position: absolute; width: 300px; height: 350px; z-index: -1; border-radius: 2px; "> -->
+                <p>General Hospital Beds</p>
+                <p>Available: <span id="ghp">25</span></p>
+            </div>
+            <div class="card"
+                style="background-image: url('./Images/icu.jpg'); background-size: 100% 100%; opacity: 0.8;">
+                <p> ICU Beds</p>
+                <p>Available: <span id="icu">25</span></p>
+            </div>
+            <div class="card"
+                style="background-image: url('./Images/Post-Surgical\ &\ Orthopedic.jpg'); background-size: 100% 100%;opacity: 0.8;">
+                <p>Post-Surgical & Orthopedic Beds</p>
+                <p>Available: <span id="psob">25</span></p>
+            </div>
+            <div class="card"
+                style="background-image: url('./Images/e.jpg'); background-size: 100% 100%; opacity: 0.8;">
+                <p>Emergency & Transport Beds</p>
+                <p>Available: <span id="etb">25</span></p>
+            </div>
+        </div>
+    </section>
+    <!-- doctors in hospital -->
+    <section>
+        <p>Doctors</p>
+        <div class="doc-data">
+            <!-- check it for idea -->
+            <!-- <div class="doc-container">
+                <div class="doc-img">
+                    <img src="" alt="doc-img">
+                </div>
+                <div class="doc-details">
+                    <p>Name: <span>Dr. Viart Kohli</span></p>
+                    <p>Education: <span>MBBS</span></p>
+                    <p>Specialist in: <span>Surgary</span></p>
+                </div>
+            </div> -->
+        </div>
+    </section>
+    <footer>
+        <div class="box-con">
+            <div class="box">
+                <h1>Contact Us</h1>
+                <ul>
+                    <li>
+                        <p>Address:</p>
+                        Khirdi Ganesh, Tal-Kopargaon, Dist- Ahemdanagar 423601 Recognized by National Commission for
+                        Indian System of Medicine, Ministry of AYUSH, Govt of India, New Delhi Affiliated to Maharashtra
+                        University of Health Science, Nashik
+                    </li>
+                    <li>
+                        <p>Phone Number:</p>
+                        <ol>
+                            <li>General Inquiry: 1234789560</li>
+                            <li>Emergency: 9874563012</li>
+                        </ol>
+                    </li>
+                    <li>
+                        <p>Email:</p>
+                        support@yourhospital.com
+                    </li>
+                </ul>
+            </div>
+            <div class="box">
+                <h1>Navigation: Quick Access</h1>
+                <ul>
+                    <li><a href="#opd">OPD Queue</a></li>
+                    <li><a href="#opd">Bed Available</a></li>
+                    <li><a href="opdregistrationform.html" target="_blank">Register for OPD</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+            <div class="box">
+                <h1>Hospital Services</h1>
+                <ul>
+                    <li>24/7 Emergency Care</li>
+                    <li>OPD & IPD Services</li>
+                    <li>Pharmacy & Diagnostics</li>
+                    <li>Ambulance Services</li>
+                </ul>
+            </div>
+            <div class="box">
+                <h1>Follow us on social media</h1>
+                <ul>
+                    <li><a href="">YouTube</a></li>
+                    <li><a href="">Twitter</a></li>
+                    <li><a href="">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // fetch OPD record
+        fetch("http://localhost:8080/PICT_AP/SendOPDQueueData").then((e) => e.json().then((data) => {
+
+
+            console.log(data)
+
+            let c = 0;
+
+            patient_data = Object.values(data);
+            let i = 0;
+            patient_data.forEach(e => {
+                console.log(e)
+
+                let row = document.createElement("tr");
+
+                let srno = document.createElement("td");
+                srno.textContent = e.token;
+                row.appendChild(srno)
+
+                let patientname = document.createElement("td")
+                patientname.textContent = e.name
+                row.appendChild(patientname)
+
+                let age = document.createElement("td")
+                age.textContent = e.age
+                row.appendChild(age)
+
+                let gender = document.createElement("td")
+                gender.textContent = e.gender
+                row.appendChild(gender)
+
+                let doctor_assign = document.createElement("td")
+                doctor_assign.textContent = e.doctor_assign
+                row.appendChild(doctor_assign)
+
+                let department = document.createElement("td")
+                department.textContent = e.department
+                row.appendChild(department)
+
+                let status = document.createElement("td")
+                let sbtn = document.createElement("button")
+                sbtn.textContent = e.status
+
+                if (e.status == "waiting") {
+                    sbtn.classList.add("waiting")
+                }
+                else if (e.status == "in-progress") {
+                    sbtn.classList.add("in-progress")
+                }
+                status.appendChild(sbtn)
+                row.appendChild(status)
+
+                // current-patient
+                c += 1;
+                document.querySelector(".Showtable").appendChild(row)
+            })
+            document.querySelector("#qc").textContent = c;
+        }))
+
+        // fetch beds record
+        fetch("http://localhost:8080/PICT_AP/SendBedData").then(e => e.json().then(data => {
+            let beds = Object.values(data)
+            console.log("bed")
+            document.querySelector("#ghp").textContent = data[0].count;
+            document.querySelector("#icu").textContent = data[1].count;
+            document.querySelector("#psob").textContent = data[2].count;
+            document.querySelector("#etb").textContent = data[3].count;
+
+        }))
+
+        // fetch doc data
+        fetch("http://localhost:8080/PICT_AP/SendDoctorData").then(e => e.json().then(data => {
+            doctors = Object.values(data)
+            console.log(doctors)
+            doctors.forEach(doc => {
+
+                let maindiv = document.createElement("div")
+                maindiv.classList.add("doc-container")
+
+                let block1 = document.createElement("div")
+                block1.classList.add("doc-container")
+                let block2 = document.createElement("div")
+                block2.classList.add("doc-details")
+
+                let docimg = document.createElement("img");
+                docimg.src = "./Images/" + doc.picname
+                block1.appendChild(docimg)
+
+                let name = document.createElement("p");
+                name.textContent = "Name:" + doc.name;
+                block2.appendChild(name)
+
+                let age = document.createElement("p")
+                age.textContent = "Age:" + doc.age;
+                block2.appendChild(age)
+
+
+
+                let education = document.createElement("p")
+                education.textContent = "Education:" + doc.education;
+                block2.appendChild(education)
+
+                let contact = document.createElement("p")
+                contact.textContent = "Contact:" + doc.contact;
+                block2.appendChild(contact)
+
+                let email = document.createElement("p")
+                email.textContent = "Email:" + doc.email;
+                block2.appendChild(email)
+
+                maindiv.appendChild(block1)
+                maindiv.appendChild(block2)
+                document.querySelector(".doc-data").appendChild(maindiv)
+            })
+        })
+        )
+
+    </script>
+</body>
+
+</html>

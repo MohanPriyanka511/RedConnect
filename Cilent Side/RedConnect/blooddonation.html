@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Blood Doner: APP</title>
+    <style>
+        /* @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap'); */
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            /* font-family: 'Ubuntu', 'Tahoma', 'sans-serif'; */
+
+        }
+
+        /* nav bar style */
+        nav {
+            background-color: rgb(240, 248, 255);
+            display: flex;
+            position: fixed;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 15px 55px;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            font-size: 21px;
+            color: rgb(39, 2, 2);
+            text-decoration: none;
+            padding: 8px 4px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            /* background-color: #6a6b6c5f; */
+            box-shadow: 0 0 2px rgb(10, 11, 11);
+        }
+
+        section:nth-of-type(2) {
+            background-color: antiquewhite;
+            height: 80vh;
+            text-align: center;
+            background-image: url("https://img.freepik.com/vector-premium/diseno-logotipo-donacion-sangre-ilustracion-vector-donacion-sangre-concepto-linea-gota-sangre_613482-732.jpg?w=2000");
+            background-size: 100% 100%;
+            object-fit: contain;
+            background-repeat: no-repeat;
+            font-size: 50px;
+            padding-top: 50px;
+        }
+
+        section:nth-of-type(3) {
+            /* background-color: antiquewhite; */
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        section:nth-of-type(3) img {
+            width: 100%;
+            height: 600px;
+        }
+
+        section:nth-of-type(4) {
+            width: 100%;
+            height: 300px;
+            text-align: left;
+            padding: 30px;
+            margin-top: 40px;
+            margin-left: 30px;
+        }
+
+        section:nth-of-type(4) h1 {
+            font-size: 35px;
+            color: black;
+        }
+
+        section:nth-of-type(4) ul {
+            padding-left: 25px;
+        }
+
+        section:nth-of-type(4) li {
+            font-size: 28px;
+            color: black;
+        }
+
+        section:nth-of-type(5) {
+            font-size: 19px;
+            color: rgb(9, 9, 9);
+            text-align: center;
+            height: 400px;
+
+        }
+
+        section:nth-of-type(5) h1 {
+            font-size: 48px;
+        }
+
+        #donerdata {
+            text-align: center;
+            margin: auto;
+            min-height: 50px;
+            width: 95%;
+        }
+
+        #donerdata td,
+        th {
+            text-align: center;
+            margin: auto;
+            font-size: 20px;
+            padding: 5px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+       
+        <nav>
+            <div class="logo">
+                <p><a href="#" style="text-decoration: none; font-size: 25px; color: rgb(30, 0, 0); border: none;">Raktdaan_AP</a></p>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li> <a href="./blooddonationregistration..html">Register for Donation</a></li>
+                    <li><a href="#availabledoner">Available Doner</a></li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+
+    <section>
+        <h1>Donate Blood, Save Life</h1>
+    </section>
+    <section>
+        <div><img
+                src="https://www.agriculturewale.com/wp-content/uploads/2023/03/Blood-group-Donor-Recipients-Table-1024x758.jpg"
+                alt=""></div>
+    </section>
+    <section>
+        <div>
+            <h1>Advantages of <span style="color:red">Blood</span> Donation</h1>
+            <ul type="square">
+                <li>Saves Lives – One donation can save up to three lives.</li>
+                <li>Promotes Heart Health – Reduces excess iron levels, lowering heart disease risk.</li>
+                <li>Helps in Weight Regulation – Burns approximately 650 kcal per donation.</li>
+                <li>Reduces Cancer Risk – Lower iron levels may decrease cancer risks.</li>
+                <li>Encourages a Healthy Lifestyle – Encourages regular health monitoring and good habits.</li>
+            </ul>
+        </div>
+    </section>
+    <section>
+        <h1>Available Doner</h1>
+        <div id="availabledoner">
+            <table border="1px" id="donerdata">
+                <caption>Donter Data</caption>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Blood Group</th>
+                    <th>Gender</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Email Id</th>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <script>
+        let d = document.querySelector("#donerdata")
+        fetch("http://localhost:8080/LocalBloodDoner/senddata").then(e => e.json().then(data => {
+            // console.log(data)
+            let array_val = Object.values(data)
+            // console.log(val)
+            array_val.forEach(e => {
+                let val = Object.values(e)
+                console.log(val)
+                let row = document.createElement("tr")
+                let col1 = document.createElement("td")
+                let col2 = document.createElement("td")
+                let col3 = document.createElement("td")
+                let col4 = document.createElement("td")
+                let col5 = document.createElement("td")
+                let col6 = document.createElement("td")
+                let col7 = document.createElement("td")
+                col1.textContent = val[2]
+                col2.textContent = val[6]
+                col3.textContent = val[3]
+                col4.textContent = val[1]
+                col5.textContent = val[0]
+                col6.textContent = val[5]
+                col7.textContent = val[4]
+                row.appendChild(col1)
+                row.appendChild(col2)
+                row.appendChild(col3)
+                row.appendChild(col4)
+                row.appendChild(col5)
+                row.appendChild(col6)
+                row.appendChild(col7)
+                d.append(row)
+                console.log(row)
+            })
+
+        }))
+    </script>
+</body>
+
+</html>

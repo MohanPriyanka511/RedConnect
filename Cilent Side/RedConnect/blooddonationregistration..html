@@ -1,0 +1,329 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Form</title>
+    <link rel="stylesheet" href="mohan.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+        body {
+            background-color: rgb(30, 28, 26);
+            font-family: 'Ubuntu', 'Tahoma', 'sans-serif';
+            font-size: 1rm;
+            font-weight: 400;
+            line-height: 1.4;
+            color: white;
+            /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+   align-items: center;
+   display:grid;
+   place-items: center;*/
+            height: 100%;
+            margin: 0;
+            position: relative;
+
+
+        }
+
+        .error {
+            color: white;
+        }
+
+        .success {
+            color: green;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .form-group {
+            padding: top 5px;
+            width: 20vw;
+            font-size: larger;
+
+        }
+
+        header {
+            padding-bottom: 20px;
+            padding-top: 30px;
+            font-weight: 600;
+            color: rgb(226, 202, 172);
+            font-size: xx-large;
+            /* width: 40vw; */
+
+        }
+
+        header p {
+            font-size: larger;
+        }
+
+        header h1 {
+            font-display: large;
+        }
+
+        [type="number"] {
+            text-align: center;
+            padding: 5px 0 5px 0;
+            width: 300px;
+            cursor: pointer;
+            border-radius: 7px;
+            border-style: double;
+            height: 100%;
+            margin-top: 5px;
+            height: 1.8rem;
+            border-color: antiquewhite;
+            font-size: 17px;
+
+        }
+
+        [type="textbox"] {
+            text-align: center;
+            padding: 2px 0 2px 0;
+            width: 300px;
+            cursor: pointer;
+            border-radius: 7px;
+            border-style: double;
+            border-color: antiquewhite;
+            height: 1.8rem;
+            margin-top: 5px;
+            font-size: 17px;
+
+        }
+
+        [type="email"] {
+            text-align: center;
+            padding: 2px 0 2px 0;
+            width: 300px;
+            cursor: pointer;
+            border-radius: 7px;
+            border-style: double;
+            border-color: antiquewhite;
+            height: 100%;
+            word-spacing: 20%;
+            margin-top: 5px;
+            height: 1.8rem;
+            font-size: 17px;
+
+
+
+        }
+
+        [type="password"] {
+            text-align: center;
+            padding: 2px 0 2px 0;
+            width: 300px;
+            cursor: pointer;
+            border-radius: 7px;
+            border-style: double;
+            height: 100%;
+            word-spacing: 20%;
+            margin-top: 5px;
+            border-color: antiquewhite;
+            height: 1.8rem;
+        }
+
+
+
+
+        form {
+            background-color: black;
+            padding: 20px 34px 40px 45px;
+            align-items: baseline;
+            border-radius: 25px;
+            border: 2px solid blanchedalmond;
+            box-shadow: none;
+            margin: 5px 5px;
+            width: 370px;
+        }
+
+        [type="radio"] {
+            padding: 10px;
+        }
+
+        textarea {
+            text-align: center;
+            margin: 10px 10px;
+
+            padding: 15px;
+            width: 100%;
+            min-height: 100px;
+            min-width: 200px;
+            height: 200%;
+            border-radius: 10px;
+            resize: none;
+        }
+
+        .container {
+            padding: 20px 10px 0 0;
+            font-style: initial;
+            /* height: 0px; */
+            background-color: rgb(25, 24, 24);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+        }
+
+        button {
+            margin-top: 10px;
+            border-radius: 20px;
+            margin-left: 30%;
+            padding: 5px;
+            font-size: large;
+            background-color: greenyellow;
+            cursor: pointer;
+            width: 100px;
+        }
+
+        .main {
+
+            background-color: rgb(68, 137, 198);
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                display: block;
+                padding: 0 0;
+            }
+            header{
+                padding-left: 18px;
+            }
+            header p {
+                font-size: x-large;
+            }
+
+            header h1 {
+                font-size:larger;
+            }
+
+            form {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="container">
+            <div>
+                <header class="header">
+                    <h1 id="heading" class="text-center">
+                        Save a Life...</h1>
+                    <p> Register Here for Blood Donation :) </p>
+                </header>
+            </div>
+            <div>
+                <form id="form" action="http://localhost:8080/LocalBloodDoner/registerform">
+                    <div class="form-group">
+                        <label for="name" id="name-label">Name</label><br>
+                        <input type="textbox" name="uname" id="name" class="name" placeholder="Enter your Name"
+                            required><br>
+                        <span id="namerror" class="error"></span>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="email" id="email-label">Email</label><br>
+                        <input type="email" name="email" id="email" class="email" placeholder="Enter your Email"
+                            required><br>
+                        <span id="emailerror" class="error"></span><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="Phone" id="phone">Enter phone number</label><br>
+                        <input type="number" name="phone" placeholder="Enter phone number" id="phone" class="phone"
+                            required><br>
+                        <span id="pass-error" class="error"></span><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="bloodgrp" id="password-label1">Blood Group</label><br>
+                        <input type="textbox" name="bgrp" placeholder="Enter Blood Group" id="bloodgrp" class="bloodgrp"
+                            required><br>
+                        <span id="pass-error" class="error"></span><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="bloodgrp" id="password-label1">Gender</label><br>
+                        <select type="textbox" name="gender" id="">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Prefer not to say">Prefer not to say</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="address" id="address">Enter address</label><br>
+                        <input type="textbox" id="address" name="address" class="address" placeholder="Enter address">
+                        <br>
+                        <span id="confirmPasswordError" class="error"></span>
+
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="age" id="number-label">Age
+                        </label>
+                        <br>
+                        <input type="number" min=10 max=99 name="age" id="age" placeholder="Age">
+                        <span id="agerror" class="age"></span>
+                    </div><br>
+                    <button id="sub" type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+
+
+        //these statements will clear all previous error sms.This block of code is used to clear any previous validation error messages before performing the current validation process in a form. It ensures that the error messages from a previous form submission attempt are removed so that the user only sees error messages related to the current input.
+        document.getElementById('namerror').innerText = '';
+        document.getElementById('emailerror').innerText = '';
+        document.getElementById('pass-error').innerText = '';
+        document.getElementById('confirmPasswordError').innerText = '';
+
+        function validation() {
+            const submit = document.getElementById("sub");
+            submit.addEventListener("click", function () {
+                const name = document.getElementById('name').value;
+                const namerror = document.getElementById('namerror');
+                if (name.trim() === '') {
+                    namerror.innerText = 'Name is required.';
+                    namerror.style.color = "red";
+                    isValid = false;
+                } else {
+                    namerror.innerText = '';
+                }
+
+                //email
+                let email = document.getElementById('email').value.trim();
+                const emailerr = document.getElementById("emailerror");
+                const emailreex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/   // /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (email.trim() === '') {
+                    emailerror.innerText = 'Name is required.';
+                    emailerror.style.color = "red";
+                    isValid = false;
+
+                }
+                else if (!emailreex.test(email)) {
+                    emailerror.innerText = 'Enter a valid email address.';
+                    isValid = false;
+                }
+                else {
+                    emailerror.innerText = '';
+                }
+            })
+
+        }
+    </script>
+</body>
+
+</html>

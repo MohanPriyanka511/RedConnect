@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+        body {
+            background-color: rgb(30, 28, 26);
+            font-family: 'Ubuntu', 'Tahoma', 'sans-serif';
+            font-size: 1rm;
+            font-weight: 400;
+            line-height: 1.4;
+            color: white;
+            /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+   align-items: center;
+   display:grid;
+   place-items: center;*/
+            height: 100%;
+            margin: 0;
+            position: relative;
+
+
+        }
+
+        .error {
+            color: white;
+        }
+
+        .success {
+            color: green;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .form-group {
+            padding: top 5px;
+            width: 20vw;
+            font-size: larger;
+
+        }
+
+        form {
+            width: 383px;
+        }
+
+        header {
+            padding-bottom: 20px;
+            padding-top: 30px;
+            font-weight: 600;
+            color: rgb(226, 202, 172);
+            font-size: xx-large;
+            width: 40vw;
+
+        }
+
+        header p {
+            font-size: larger;
+        }
+
+        header h1 {
+            font-display: large;
+        }
+
+        [type="number"] {
+            text-align: center;
+            padding: 5px 0 5px 0;
+            width: 300px;
+            cursor: pointer;
+            border-radius: 7px;
+            border-style: double;
+            height: 100%;
+            margin-top: 5px;
+            height: 1.8rem;
+            border-color: antiquewhite;
+            font-size: 17px;
+        }
+
+
+        header {
+            padding-bottom: 20px;
+            padding-top: 30px;
+            font-weight: 600;
+            color: rgb(226, 202, 172);
+            font-size: xx-large;
+
+        }
+
+
+        header p {
+            font-size: larger;
+        }
+
+        header h1 {
+            font-display: large;
+        }
+
+
+        [type="email"] {
+            text-align: center;
+            padding: 2px 0 2px 0;
+            width: 300px;
+            cursor: pointer;
+            border-radius: 7px;
+            border-style: double;
+            border-color: antiquewhite;
+            height: 100%;
+            word-spacing: 20%;
+            margin-top: 5px;
+            height: 1.8rem;
+            font-size: 17px;
+
+
+        }
+
+        [type="password"] {
+            text-align: center;
+            padding: 2px 0 2px 0;
+            width: 300px;
+            cursor: pointer;
+            border-radius: 7px;
+            border-style: double;
+            height: 100%;
+            word-spacing: 20%;
+            margin-top: 5px;
+            border-color: antiquewhite;
+            height: 1.8rem;
+            font-size: 17px;
+
+        }
+
+
+
+
+        form {
+            background-color: black;
+            padding: 40px 34px 40px 45px;
+            align-items: baseline;
+            border-radius: 25px;
+            /* margin: 20px; */
+            border: 2px solid blanchedalmond;
+            box-shadow: none;
+            height: 350px;
+        }
+
+        .container {
+            padding-top: 0 10px 0 0;
+            font-style: initial;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(25, 24, 24);
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            border-radius: 10px;
+
+        }
+
+        button {
+            margin-top: 10px;
+            border-radius: 20px;
+            margin-top: 18px;
+            margin-left: 30%;
+            padding: 5px;
+            font-size: large;
+            background-color: greenyellow;
+            cursor: pointer;
+            width: 100px;
+        }
+
+        .main {
+
+            background-color: rgb(68, 137, 198);
+        }
+
+        p {
+            margin: 15px 0;
+        }
+
+        a {
+            color: rgb(14, 14, 248);
+            cursor: pointer;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 20px;
+                height: auto;
+            }
+
+            header {
+                padding-left: 18px;
+            }
+
+            header p {
+                font-size: x-large;
+            }
+
+            header h1 {
+                font-size: larger;
+            }
+
+            form {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="container">
+            <header class="header">
+                <h1 id="heading" class="text-center">
+                    Feel free to Join</h1>
+                <p> Login Here:) </p>
+            </header>
+            <form action="http://localhost:8080/PICT_AP/Login" method="post">
+                <div class="form-group">
+                    <label for="email" id="email-label">Enter Username</label><br>
+                    <input type="email" id="email" name="uname" class="email" placeholder="Enter your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password" id="password-label1">Password</label><br>
+                    <input type="password" name="pass" placeholder="Enter password" id="password" class="password" required>
+                </div>
+                <button type="button" onclick="validateForm()">Login</button>
+                <p id="userError"></p>
+                <p id="passError"></p>
+                <p>If don't have account as patient, <a style="text-decoration: none;" href="./patientregistrationform.html">register here</a></p>
+            </form>
+
+        </div>
+    </div>
+    <script>
+        function validateForm() {
+            let user = document.getElementById("email").value.trim();
+            let pass = document.getElementById("password").value.trim();
+            let isValid = true;
+
+            // Reset errors
+            document.getElementById("userError").innerText = "";
+            document.getElementById("passError").innerText = "";
+
+            // Validate username
+            if (user === "") {
+                document.getElementById("userError").innerText = "Username is required.";
+                isValid = false;
+            }
+
+            // Validate password
+            if (pass === "") {
+                document.getElementById("passError").innerText = "Password is required.";
+                isValid = false;
+            }
+            if (isValid == true) {
+                document.querySelector("form").submit()
+            }
+
+            return isValid;
+        }
+    </script>
+
+</body>
+
+</html>
